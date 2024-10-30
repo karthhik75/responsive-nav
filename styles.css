@@ -1,0 +1,115 @@
+body {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.bg {
+  position: absolute; /* Absolute positioning for full cover */
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  background: url(mountains.jpg); /* Background image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the image */
+  z-index: -2; /* Place behind other elements */
+}
+
+.nav {
+  height: 3.2rem; /* Height of the navigation bar */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Align items vertically in the center */
+  color: #fff; /* White text color */
+}
+
+.nav_logo {
+  /* Class for the logo */
+  font-size: 1.5rem; /* Logo text size */
+  margin: auto 1rem; /* Center the logo with margin */
+}
+
+.nav__menu ul {
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Horizontal list */
+}
+
+.nav__menu ul li {
+  list-style: none; /* Remove bullet points */
+}
+
+.nav__menu ul li a {
+  text-decoration: none; /* Remove underline from links */
+  color: #fff; /* White text color */
+  padding: 1rem; /* Padding around the links */
+  display: block; /* Block display for full clickable area */
+}
+
+.nav__menu li:hover {
+  background-color: rgb(255, 255, 255, 0.5); /* Background color on hover */
+}
+
+.nav__hamburger {
+  width: 1.875rem; /* Width of the hamburger icon */
+  height: 1.313rem; /* Height of the hamburger icon */
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack lines vertically */
+  justify-content: space-around; /* Space lines evenly */
+  position: absolute; /* Absolute positioning for placement */
+  top: 1rem; /* Position from the top */
+  right: 1rem; /* Position from the right */
+}
+
+.nav__hamburger__line {
+  height: 0.188rem; /* Height of each line */
+  width: 100%; /* Full width */
+  background-color: #fff; /* White color for lines */
+  border-radius: 0.625rem; /* Rounded edges */
+  transition: all ease-in-out 0.2s; /* Smooth transition for animations */
+}
+
+@media screen and (max-width: 550px) {
+  /* Styles for screens smaller than 550px */
+  .nav__hamburger {
+    display: flex; /* Show hamburger icon in mobile view */
+  }
+  .nav__menu {
+    position: absolute; /* Position menu absolutely */
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center items vertically */
+    background-color: rgb(255, 255, 255, 0.2); /* Semi-transparent background */
+    top: -13rem; /* Position menu above the screen */
+    width: 100%; /* Full width of the viewport */
+    transition: all ease-in-out 0.4s; /* Smooth transition */
+  }
+  .nav {
+    flex-direction: column; /* Stack navigation items vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+  .nav__menu ul {
+    flex-direction: column; /* Stack menu items vertically */
+    width: 100%; /* Full width */
+    padding: 3rem 0 0.6rem; /* Padding for the menu */
+  }
+  .nav__menu ul li {
+    text-align: center; /* Center text in each menu item */
+  }
+  .nav__menu {
+    z-index: -1; /* Position behind other elements */
+  }
+  .nav__menu:active {
+    top: 0; /* Move menu into view when active */
+  }
+}
+
+.nav__hamburger.active :nth-child(1) {
+  transform: rotate(45deg) translate(0.45rem, 0.1875rem); /* Animate first line */
+}
+.nav__hamburger.active :nth-child(2) {
+  opacity: 0; /* Hide middle line */
+}
+.nav__hamburger.active :nth-child(3) {
+  transform: rotate(-45deg) translate(0.45rem, -0.1875rem); /* Animate last line */
+}
